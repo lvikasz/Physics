@@ -1,17 +1,12 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
+
+import sys
+sys.path.append('../')
+
+from utils.load_constants import load_constants
 import yaml
-
-with open("constants.yaml", 'r') as stream:
-    try:
-        yamlFile = yaml.safe_load(stream)
-
-        g = yamlFile['g']
-        dt = yamlFile['dt']
-    except yaml.YAMLError as exc:
-        print(exc)
-        exit()
 
 with open("initial_conditions.yaml", 'r') as stream:
     try:
@@ -23,12 +18,16 @@ with open("initial_conditions.yaml", 'r') as stream:
         L2 = yamlFile['L2']
         angular_speed1_0 = yamlFile['angular_speed1_0']
         angular_speed2_0 = yamlFile['angular_speed2_0']
-        theta1_0 = yamlFile['angular_speed2_0']
-        theta2_0 = yamlFile['angular_speed2_0']
+        theta1_0 = np.radians(yamlFile['theta1_0'])
+        theta2_0 = np.radians(yamlFile['theta2_0'])
     except yaml.YAMLError as exc:
         print(exc)
-        exit()    
+        exit()
 
+g, dt = load_constants()
+
+print(g)
+print(dt)
 
 time = np.arange(0, 10, dt)
 
