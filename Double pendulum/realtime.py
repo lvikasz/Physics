@@ -5,24 +5,30 @@ import matplotlib.animation as animation
 import numpy as np
 
 # physical constants and initial conditions
-g = 9.8
+import sys
+sys.path.append('../')
 
-# upper mass
-m1 = 2
-# lower mass
-m2 = 2
+from utils.load_constants import load_constants
+import yaml
 
-# lengths of each rods
-L1 = 1
-L2 = 1
+with open("initial_conditions.yaml", 'r') as stream:
+    try:
+        yamlFile = yaml.safe_load(stream)
 
-theta1_0 = np.radians(30)
-theta2_0 = np.radians(30)
+        m1 = yamlFile['m1']
+        m2 = yamlFile['m2']
+        L1 = yamlFile['L1']
+        L2 = yamlFile['L2']
+        angular_speed1_0 = yamlFile['angular_speed1_0']
+        angular_speed2_0 = yamlFile['angular_speed2_0']
+        theta1_0 = np.radians(yamlFile['theta1_0'])
+        theta2_0 = np.radians(yamlFile['theta2_0'])
+    except yaml.YAMLError as exc:
+        print(exc)
+        exit()
 
-angular_speed1_0 = 0
-angular_speed2_0 = 0
+g, dt = load_constants()
 
-dt = 0.01
 time = np.arange(0, 10, dt)
 
 x1_plot = []
