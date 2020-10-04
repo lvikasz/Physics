@@ -1,3 +1,5 @@
+More about point charge in a magnetic field: https://en.wikipedia.org/wiki/Lorentz_force
+
 The motion of a point charge (with mass m and charge q) in a nonconstant magnetic field (B = B0(1+ay)).
 
 For a = 0 it is a circle (constant magentic field).

@@ -40,23 +40,18 @@ y2_plot = []
 theta1_plot = []
 theta2_plot = []
 
-
 # kinematic equations (converters from angles to xy plane)
 def x1(theta1):
     return L1 * np.sin(theta1)
 
-
 def y1(theta1):
     return -L1 * np.cos(theta1)
-
 
 def x2(x1, theta2):
     return x1 + L2 * np.sin(theta2)
 
-
 def y2(y1, theta2):
     return y1 - L2 * np.cos(theta2)
-
 
 def angular_acceleration1(theta1, theta2, angular_velocity1, angular_velocity2):
     nominator = -g * (2*m1 + m2) * np.sin(theta1) - m2 * g * np.sin(theta1 - 2 * theta2) - 2 * np.sin(theta1 - theta2) * m2 * ((angular_velocity2 ** 2) * L2 + (angular_velocity1**2) * L1 * np.cos(theta1 - theta2))
@@ -64,13 +59,11 @@ def angular_acceleration1(theta1, theta2, angular_velocity1, angular_velocity2):
 
     return nominator / denominator
 
-
 def angular_acceleration2(theta1, theta2, angular_velocity1, angular_velocity2):
     nominator = 2 * np.sin(theta1 - theta2) * ((angular_velocity1 ** 2) * L1 * (m1 + m2) + g * (m1 + m2) * np.cos(theta1) + (angular_velocity2**2) * L2 * m2 * np.cos(theta1 - theta2))
     denominator = L2 * (2 * m1 + m2 - m2 * np.cos(2 * (theta1 - theta2)))
 
     return nominator / denominator
-
 
 def make_move():
     theta1 = theta1_0
