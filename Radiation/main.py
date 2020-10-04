@@ -28,13 +28,13 @@ class Point:
         return ("x = %f, y = %f, R = %f" % (self.x, self.y, self.R))  
 
 # stałe:
-# v - prędkość ziomka
-# a - odległość punktów od źródła
-# alfa - współczynnik od którego zależy dawka odebrana
-# epsilon - dokładość z jaką mamy wyznaczyć promień
-# A(0,0) - punkt rozpoczęcia
-# B(a, 0) - punkt zakończenia
-# C(a/2, a*sqrt(3)/2) - punkt źródła
+# v - the velocity of the agent
+# a - distance of the points from the source
+# alfa - factor which determines the dose
+# epsilon - precision of the radius
+# A(0,0) - start point
+# B(a, 0) - stop point
+# C(a/2, a*sqrt(3)/2) - radiation source point
 
 v = 10
 a = 2000

@@ -1,3 +1,5 @@
+Wave interferation: https://en.wikipedia.org/wiki/Wave_interference
+
 The graphs shows the interference of two waves from two different sources.
 
 ![alt text](https://github.com/lvikasz/Physics/blob/master/Wave%20interferation/interference1.png)
