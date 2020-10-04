@@ -1,5 +1,5 @@
 In this repository you can find my solutions for some physics problems.
-In order to run scripts you should run ```bash pip install -r requirments.txt```.
+In order to run scripts you should run ```pip install -r requirments.txt```.
 
 ![alt text](https://github.com/lvikasz/Physics/blob/master/Wave%20interferation/interference1.png)
 ![alt text](https://github.com/lvikasz/Physics/blob/master/Double%20pendulum/Double_pendulum1.png)
