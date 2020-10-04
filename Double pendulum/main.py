@@ -3,33 +3,32 @@ import matplotlib.animation as animation
 import numpy as np
 import yaml
 
-# physical constants and initial conditions
-g = 10
-dt = 0.01
-
-# upper mass
-m1 = 2
-# lower mass
-m2 = 2
-
-# lengths of each rods
-L1 = 1
-L2 = 1
-
 with open("constants.yaml", 'r') as stream:
     try:
         yamlFile = yaml.safe_load(stream)
+
         g = yamlFile['g']
         dt = yamlFile['dt']
     except yaml.YAMLError as exc:
         print(exc)
         exit()
 
-theta1_0 = np.radians(float(input("Enter first angle(in degrees): ")))
-theta2_0 = np.radians(float(input("Enter second angle(in degrees): ")))
+with open("initial_conditions.yaml", 'r') as stream:
+    try:
+        yamlFile = yaml.safe_load(stream)
 
-angular_speed1_0 = 0
-angular_speed2_0 = 0
+        m1 = yamlFile['m1']
+        m2 = yamlFile['m2']
+        L1 = yamlFile['L1']
+        L2 = yamlFile['L2']
+        angular_speed1_0 = yamlFile['angular_speed1_0']
+        angular_speed2_0 = yamlFile['angular_speed2_0']
+        theta1_0 = yamlFile['angular_speed2_0']
+        theta2_0 = yamlFile['angular_speed2_0']
+    except yaml.YAMLError as exc:
+        print(exc)
+        exit()    
+
 
 time = np.arange(0, 10, dt)
 
@@ -104,7 +103,6 @@ def make_move():
 
 
 make_move()
-# plt.plot(x1_plot, y1_plot)
 
 fig, ax = plt.subplots()
 
@@ -115,10 +113,3 @@ plt.ylabel(r"${\Theta_1}[rad]$")
 plt.xlabel(r"$t[s]$")
 
 plt.show()
-# plt.plot(x2_plot, y2_plot)
-
-# using Runge-Kutta Algorithm
-# def angular_velocity1(theta1, theta2, angular_velocity1, angular_velocity2):
-#    a = dt * angular_acceleration1(theta1, theta2, angular_velocity1, angular_velocity2)
-#    b = dt * angular_acceleration1()
-
