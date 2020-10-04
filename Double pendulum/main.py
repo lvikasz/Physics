@@ -1,9 +1,11 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
+import yaml
 
 # physical constants and initial conditions
-g = 9.8
+g = 10
+dt = 0.01
 
 # upper mass
 m1 = 2
@@ -14,15 +16,21 @@ m2 = 2
 L1 = 1
 L2 = 1
 
-#theta1_0 = np.radians(40)
-#theta2_0 = np.radians(70)
+with open("constants.yaml", 'r') as stream:
+    try:
+        yamlFile = yaml.safe_load(stream)
+        g = yamlFile['g']
+        dt = yamlFile['dt']
+    except yaml.YAMLError as exc:
+        print(exc)
+        exit()
+
 theta1_0 = np.radians(float(input("Enter first angle(in degrees): ")))
 theta2_0 = np.radians(float(input("Enter second angle(in degrees): ")))
 
 angular_speed1_0 = 0
 angular_speed2_0 = 0
 
-dt = 0.005
 time = np.arange(0, 10, dt)
 
 x1_plot = []
