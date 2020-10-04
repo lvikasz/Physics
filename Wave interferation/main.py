@@ -14,18 +14,16 @@ l = 0.155
 # current time
 t = 0
 
-# coordinates od first source
+# coordinates of first source
 x1 = 0
 y1 = 0
 
-# coordinates od second source
+# coordinates of second source
 x2 = 0.5
 y2 = 0
 
-
 def get_amp(X, Y):
     return (A * (np.sin(2*np.pi*((np.sqrt((X - x1)**2 + (Y - y1)**2) / l) - (t / T))) + np.sin(2*np.pi*((np.sqrt((X - x2)**2 + (Y - x1)**2) / l) - (t / T)))))
-
 
 # plane
 X = np.arange(-0.1, 1.7, 0.005)

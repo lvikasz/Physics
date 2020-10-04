@@ -1,4 +1,4 @@
-# graph of emf vs time while moving loop with constant velocity  
+# graph of emf vs time while moving loop with constant velocityaa
 
 import matplotlib.pyplot as plt
 from math import sqrt
